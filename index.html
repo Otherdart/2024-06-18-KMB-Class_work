@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="./icon/KowloonMotorBus.svg">
+    <link rel="stylesheet" href="styles.css">
+    <!-- <script src="https://cdn.tailwindcss.com"></script> -->
+    <title>KMB App</title>
+</head>
+<body>
+    <header class="flex justify-center m-10">
+        <img src="./icon/KowloonMotorBus.svg" width="250px" height="250px">
+    </header>
+
+    <section class="flex justify-center flex-wrap space-x-20" >
+
+        <div class="box-border border-4 h-32 w-auto" id="inputContainer">
+
+            <input type="text" id="BusNumber" placeholder="Bus No." class="border border-sky-500">
+            <button id="submitbtn">Enter</button>
+            
+            
+        </div>
+    
+        <div class="box-border border-4" id = "displayContainer">
+
+        </div>
+    </section>
+<script src="./script.js"></script>
+</body>
+</html>
