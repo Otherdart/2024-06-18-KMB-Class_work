@@ -26,6 +26,7 @@ async function processBusRoutes(){
 
     const displayContainer = document.getElementById("displayContainer");
     const stopDisplayContainer = document.getElementById("stopDisplayContainer");
+    const etaDisplayContainer = document.getElementById("etaDisplayContainer");
     const buttonElement = document.getElementById("submitbtn");
     buttonElement.addEventListener("click", function(){
 
@@ -121,12 +122,11 @@ async function processBusRoutes(){
             const routesclicked = document.getElementById(`${Routes.route}${Routes.bound}${Routes.service_type}`)
             routesclicked.addEventListener("click", async function(){
 
-     
-        
 
                 stopDisplayContainer.innerHTML = '';
 
                 let routestoplis = await getBusRoutesStop();
+
 
                 for(let i =0; i<routestoplis.length; i++){
                     const Routesstops = routestoplis[i];
@@ -137,11 +137,6 @@ async function processBusRoutes(){
                     x.appendChild(routeDisplay);
                     stopDisplayContainer.appendChild(x);
                     x.id = (`${busStop.name_en}`)
-
-                    
-
-
-                    console.log(busStop.name_tc);
 
                     async function getBusStop() {
                         try {
@@ -155,8 +150,7 @@ async function processBusRoutes(){
                             console.error('Error fetching bus routes:', error);
                             return null; // or handle the error as needed
                         }
-                    }
-
+                    }    
 
 
                     async function getBusRoutesETA() {
@@ -173,15 +167,30 @@ async function processBusRoutes(){
                         }
                     }
                     
-                    let BusRoutesETA = await getBusRoutesETA();
-                    let Eta = BusRoutesETA;         
+                    let BusRoutesETA = await getBusRoutesETA(); 
+                    
+                    
                     for(let i =0; i<3; i++){
-                        console.log(Eta[i]);
+                    let busRoutes = BusRoutesETA[i]
+                    let busRoutescheckbtn = document.getElementById(`${busStop.name_en}`);
+                    busRoutescheckbtn.addEventListener("click",function(){
+                        
+                        console.log(busStop.name_tc);
+                        console.log(busRoutes);
+                        let date = new Date(busRoutes.data_timestamp);
+                        let etadate = new Date(busRoutes.eta)
+                        const text = document.createElement("p");
+                        const routeEtaDisplay = document.createTextNode(`${etadate.getMinutes() - date.getMinutes()} + ${busRoutes.eta_seq} + ${busRoutes.rmk_tc}`);
+                        text.appendChild(routeEtaDisplay);
+                        etaDisplayContainer.appendChild(text);
+            
+                    });
                     }
+
+                   
                     
 
                 }
-                
 
             })
 
@@ -216,19 +225,6 @@ async function processBusRoutes(){
                 return null; // or handle the error as needed
             }
         }
-
-
-
-
-
-
-
-
-
-
-
-
-
     }
 
     })  
@@ -237,19 +233,4 @@ async function processBusRoutes(){
 processBusRoutes();
 
 
-
-
-
-// // ETA API
-// fetch("https://data.etabus.gov.hk//v1/transport/kmb/eta/A60AE774B09A5E44/40/1")
-//     .then(response =>{
-//         if(!response.ok){
-//           throw new Error("Could not fetch response")
-//         }
-//         return response.json()
-//     })
-//     .then(database => console.table(database.data))
-//     .catch(error => console.error(error));
-
-    
     
