@@ -72,6 +72,7 @@ async function processBusRoutes(){
                     const routeDisplay = document.createTextNode(busStop.name_tc);
                     x.appendChild(routeDisplay);
                     stopDisplayContainer.appendChild(x);
+                    x.id = (`${busStop.name_en}`)
 
 
                 async function getBusStop() {
@@ -88,7 +89,40 @@ async function processBusRoutes(){
                         }
                     }
 
-                    console.log(Routesstops);
+                    
+                    async function getBusRoutesETA() {
+                        try {
+                            const response = await fetch(`https://data.etabus.gov.hk/v1/transport/kmb/eta/${Routesstops.stop}/${Routes.route}/${Routes.service_type}`);
+                            if (!response.ok) {
+                                throw new Error(`HTTP error! Status: ${response.status}`);
+                            }
+                            const BusRoutesStopETA = await response.json();
+                            return BusRoutesStopETA.data;
+                        } catch (error) {
+                            console.error('Error fetching bus routes:', error);
+                            return null; // or handle the error as needed
+                        }
+                    }
+                    
+                    let BusRoutesETA = await getBusRoutesETA(); 
+                    
+                    
+                    for(let i =0; i<3; i++){
+                    let busRoutes = BusRoutesETA[i]
+                    let busRoutescheckbtn = document.getElementById(`${busStop.name_en}`);
+                    busRoutescheckbtn.addEventListener("click",function(){
+                        
+                        console.log(busStop.name_tc);
+                        console.log(busRoutes);
+                        let date = new Date(busRoutes.data_timestamp);
+                        let etadate = new Date(busRoutes.eta)
+                        const text = document.createElement("p");
+                        const routeEtaDisplay = document.createTextNode(`${etadate.getMinutes() - date.getMinutes()} + ${busRoutes.eta_seq} + ${busRoutes.rmk_tc}`);
+                        text.appendChild(routeEtaDisplay);
+                        etaDisplayContainer.appendChild(text);
+            
+                    });
+                    }
 
 
                 }
