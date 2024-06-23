@@ -1,3 +1,20 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+.center {
+    border-radius: 50%;  /* or border-radius: 60px; */
+    background-color: #ef7f53;
+    margin: 10px;
+    width: 500px;
+    height: 500px;
+    display: inline-block;
+    z-index: -1;
+    left: 50px;
+  }
+
+  #inputContainer {
+    background-color: white;
+    margin: 10px;
+    width: 150px;
+    height: 200px;
+    display: inline-block;
+    right: 1500px;
+    left: 50px;
+  }
