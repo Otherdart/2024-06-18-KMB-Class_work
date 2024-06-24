@@ -1,20 +1,143 @@
-.center {
+body,html{
+    height: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+
+.circle {
     border-radius: 50%;  /* or border-radius: 60px; */
     background-color: #ef7f53;
-    margin: 10px;
-    width: 500px;
-    height: 500px;
-    display: inline-block;
+    width: 300px;
+    height: 300px;
     z-index: -1;
-    left: 50px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-content: flex-start;
+    align-items: center;
   }
 
-  #inputContainer {
+  
+
+#icon1{
+    
+    position: relative;
+    top: 50px;
+
+}
+
+#BusNumber{
+    text-align: center;
+    font-size: 55px;
+    background: transparent;
+}
+
+#inputContainer {
+    border-radius: 5%;
     background-color: white;
-    margin: 10px;
-    width: 150px;
-    height: 200px;
-    display: inline-block;
-    right: 1500px;
-    left: 50px;
+    width: 250px;
+    height: 120px;
+    align-content: center;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    top: 60px;
+
   }
+
+#displayContainer{
+
+    background-color: #ffffff;
+    margin: 10px;
+    width: 230px;
+    height: 100px;
+    align-content: center;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    font-size: 150px;
+
+}
+
+#Routesbroad{
+
+    width: 250px;
+    height: 120px;
+    align-content: center;
+    position: relative;
+    top: 130px;
+    border-radius: 5%;
+   
+
+}
+
+
+#StopRoutesbroad{
+
+    width: 250px;
+    height: 420px;
+    align-content: center;
+    justify-content: center;
+    position: relative;
+    top: 140px;
+    border-radius: 5%;
+    left: 25px;
+
+}
+
+#stopDisplayContainer{
+
+    background-color: #ffffff;
+    overflow: scroll;
+    margin: 10px;
+    width: 230px;
+    height:350px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    justify-content: flex-start;
+    position: relative;
+    top: 10px;
+    gap: 5px;
+
+}
+
+#stick{
+    position: relative;
+    width: 50px;
+    z-index: -1;
+    height: 800px;
+    background-color: black;
+    top: -500px;
+    left: 125px;
+
+}
+
+#etaDisplayContainer{
+
+    background-color: brown;
+    overflow: scroll;
+    margin: 10px;
+    width: 230px;
+    height:150px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    justify-content: flex-start;
+    position: relative;
+    top: 10px;
+    gap: 5px;
+
+
+}
+
+#Clicktoshow{
+    background-color: white;
+}
+
+
+

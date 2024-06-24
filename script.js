@@ -50,10 +50,12 @@ async function processBusRoutes(){
         if(Routes.bound === "I"){
 
             const x = document.createElement("button");
-            const routeDisplay = document.createTextNode(`${Routes.orig_tc} "-->" ${Routes.dest_tc}`);
+            const routeDisplay = document.createTextNode(`${Routes.orig_tc} --> ${Routes.dest_tc}`);
             x.appendChild(routeDisplay);
             displayContainer.appendChild(x);
             x.id = `${Routes.route}${Routes.bound}${Routes.service_type}`
+            x.className ="bg-red-500 text-white active:bg-red-600 font-bold uppercase text-xs px-4 py-2 rounded-full shadow hover:shadow-md outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
+    
 
             //click function
             const routesclicked = document.getElementById(`${Routes.route}${Routes.bound}${Routes.service_type}`)
@@ -73,6 +75,7 @@ async function processBusRoutes(){
                     x.appendChild(routeDisplay);
                     stopDisplayContainer.appendChild(x);
                     x.id = (`${busStop.name_en}`)
+                    x.className = "bg-red-500 text-white active:bg-red-600 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
 
 
                 async function getBusStop() {
@@ -116,7 +119,8 @@ async function processBusRoutes(){
                         console.log(busRoutes);
                         let date = new Date(busRoutes.data_timestamp);
                         let etadate = new Date(busRoutes.eta)
-                        const text = document.createElement("p");
+                        const text = document.createElement("div");
+                        text.id = (`Clicktoshow`)
                         const routeEtaDisplay = document.createTextNode(`${etadate.getMinutes() - date.getMinutes()} + ${busRoutes.eta_seq} + ${busRoutes.rmk_tc}`);
                         text.appendChild(routeEtaDisplay);
                         etaDisplayContainer.appendChild(text);
@@ -147,10 +151,11 @@ async function processBusRoutes(){
         } else if (Routes.bound === "O"){
 
             const x = document.createElement("button");
-            const routeDisplay = document.createTextNode(`${Routes.orig_tc} "-->" ${Routes.dest_tc}`);
+            const routeDisplay = document.createTextNode(`${Routes.orig_tc} --> ${Routes.dest_tc}`);
             x.appendChild(routeDisplay);
             displayContainer.appendChild(x);
             x.id = `${Routes.route}${Routes.bound}${Routes.service_type}`
+            x.className = "bg-red-500 text-white active:bg-red-600 font-bold uppercase text-xs px-4 py-2 rounded-full shadow hover:shadow-md outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
 
             //click function
             const routesclicked = document.getElementById(`${Routes.route}${Routes.bound}${Routes.service_type}`)
@@ -171,6 +176,7 @@ async function processBusRoutes(){
                     x.appendChild(routeDisplay);
                     stopDisplayContainer.appendChild(x);
                     x.id = (`${busStop.name_en}`)
+                    x.className = "bg-red-500 text-white active:bg-red-600 font-bold uppercase text-xs px-4 py-2 rounded-full shadow hover:shadow-md outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
 
                     async function getBusStop() {
                         try {
@@ -213,10 +219,13 @@ async function processBusRoutes(){
                         console.log(busRoutes);
                         let date = new Date(busRoutes.data_timestamp);
                         let etadate = new Date(busRoutes.eta)
-                        const text = document.createElement("p");
+                        const text = document.createElement("div");
+                        text.id = (`Clicktoshow`)
                         const routeEtaDisplay = document.createTextNode(`${etadate.getMinutes() - date.getMinutes()} + ${busRoutes.eta_seq} + ${busRoutes.rmk_tc}`);
                         text.appendChild(routeEtaDisplay);
                         etaDisplayContainer.appendChild(text);
+
+                     
             
                     });
                     }
@@ -265,6 +274,8 @@ async function processBusRoutes(){
 }
 
 processBusRoutes();
+
+
 
 
     

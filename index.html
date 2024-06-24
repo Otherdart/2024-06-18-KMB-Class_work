@@ -5,38 +5,60 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/x-icon" href="./icon/KowloonMotorBus.svg">
     <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.tailwindcss.com"></script>
     <title>KMB App</title>
 </head>
-<body class="">
-    <header class="">
-        <img src="./icon/KowloonMotorBus.svg" width="250px" height="250px">
-    </header>
+<body>
+    
+    <div id="Container">
+        <section class="circle bg-red-500" >
 
-
-    <section class="center" >
-
-        <div id="inputContainer">
-
-            <input type="text" id="BusNumber" placeholder="Bus No.">
-            <button id="submitbtn">Enter</button>
-            <button id="resetbtn">Reset</button>
+            <div id="icon1">
+                <img src="./icon/KowloonMotorBus.svg" width="100px" height="100px">
+            </div>
             
-        </div>
+            <div id="inputContainer">
 
+                <p class="w-85 border-soild border-2 border-black-500">ROUTE NOS .路線號</p>
+                <input size="4" type="text" id="BusNumber" placeholder="BUS">
+                <button class="bg-red-500 text-white active:bg-red-600 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"id="submitbtn">Enter</button>
+                
+            </div>
+            
 
-        <div id = "displayContainer">
-
-        </div>
-
-        <div id = "stopDisplayContainer">
-
-        </div>
-
-        <div id = "etaDisplayContainer">
-
-        </div>
+            <div class="bg-red-500"  id="Routesbroad">
+                
+    
+                <div id = "displayContainer">
+    
+                </div>
+    
+            </div>
+    
+        </section>
         
-    </section>
+        <div class="bg-red-500"  id="StopRoutesbroad">
+
+            <div id = "stopDisplayContainer">
+
+            </div>
+
+
+        </div>
+
+        
+
+        <div id="stick"></div>
+    </div>
+    
+    <div class="hidden bg-red-600 border-0 ml-3 block z-50 font-normal leading-normal text-sm max-w-xs text-left no-underline break-words rounded-lg" id="etaDisplayContainer" onclick="openPopover(event,popoverID)">
+
+
+    </div>
+        
+    
+    
 <script src="./script.js"></script>
+
 </body>
 </html>
