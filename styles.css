@@ -4,7 +4,10 @@ body,html{
     justify-content: center;
 }
 
-
+#submitbtn{
+    position: relative;
+    top: 10px;
+}
 .circle {
     border-radius: 50%;  /* or border-radius: 60px; */
     background-color: #ef7f53;
@@ -19,11 +22,16 @@ body,html{
   }
 
   
+.routep{
+    position: relative;
+    width: 250px;
+    top: 20px;
+}
 
 #icon1{
     
     position: relative;
-    top: 50px;
+    top: 40px;
 
 }
 
@@ -45,7 +53,7 @@ body,html{
     justify-content: center;
     align-items: center;
     position: relative;
-    top: 60px;
+    top: 20px;
 
   }
 
@@ -54,22 +62,25 @@ body,html{
     background-color: #ffffff;
     margin: 10px;
     width: 230px;
-    height: 100px;
-    align-content: center;
+    height: 120px;
+    align-content:flex-start;
     display: flex;
     justify-content: center;
     flex-direction: column;
     font-size: 150px;
+    overflow: scroll;
+    position: relative;
+    
 
 }
 
 #Routesbroad{
 
     width: 250px;
-    height: 120px;
+    height: 250px;
     align-content: center;
     position: relative;
-    top: 130px;
+    top: 100px;
     border-radius: 5%;
    
 
@@ -83,7 +94,7 @@ body,html{
     align-content: center;
     justify-content: center;
     position: relative;
-    top: 140px;
+    top: 150px;
     border-radius: 5%;
     left: 25px;
 
@@ -101,7 +112,7 @@ body,html{
     flex-direction: column;
     justify-content: flex-start;
     position: relative;
-    top: 10px;
+    top: 5px;
     gap: 5px;
 
 }
@@ -119,24 +130,19 @@ body,html{
 
 #etaDisplayContainer{
 
-    background-color: brown;
-    overflow: scroll;
-    margin: 10px;
-    width: 230px;
-    height:150px;
+    background-color:gainsboro;
+    width: 200px;
+    height: 100px;
+    position: relative;
+    top: 500px;
     display: flex;
     justify-content: center;
     flex-direction: column;
-    justify-content: flex-start;
-    position: relative;
-    top: 10px;
-    gap: 5px;
+    border-radius: 5%;
+    overflow: scroll;
+    display: none;
+    
 
-
-}
-
-#Clicktoshow{
-    background-color: white;
 }
 
 

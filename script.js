@@ -33,12 +33,17 @@ async function processBusRoutes(){
     // Clear previous results
     stopDisplayContainer.innerHTML = '';
     displayContainer.innerHTML = '';
+    etaDisplayContainer.innerHTML = '';
+    etaDisplayContainer.style.display = "none";
+    
 
     let BusNumberInput = document.getElementById('BusNumber');
     let BusValue = BusNumberInput.value.toUpperCase();
     console.log(BusValue);
 
     const CheckRoutes = busRoutesData.filter((Broutes)=>Broutes.route === BusValue );
+   
+    if(CheckRoutes == ""){alert("invalid input")}
     console.log(CheckRoutes);
 
 
@@ -75,7 +80,8 @@ async function processBusRoutes(){
                     x.appendChild(routeDisplay);
                     stopDisplayContainer.appendChild(x);
                     x.id = (`${busStop.name_en}`)
-                    x.className = "bg-red-500 text-white active:bg-red-600 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
+                
+                    x.className = "bg-red-500 text-white active:bg-red-600 font-bold uppercase text-xs px-4 py-2 rounded-full shadow hover:shadow-md outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
 
 
                 async function getBusStop() {
@@ -108,22 +114,31 @@ async function processBusRoutes(){
                     }
                     
                     let BusRoutesETA = await getBusRoutesETA(); 
-                    
-                    
+
                     for(let i =0; i<3; i++){
                     let busRoutes = BusRoutesETA[i]
                     let busRoutescheckbtn = document.getElementById(`${busStop.name_en}`);
                     busRoutescheckbtn.addEventListener("click",function(){
                         
-                        console.log(busStop.name_tc);
-                        console.log(busRoutes);
+                        
+
+                        
                         let date = new Date(busRoutes.data_timestamp);
-                        let etadate = new Date(busRoutes.eta)
-                        const text = document.createElement("div");
-                        text.id = (`Clicktoshow`)
-                        const routeEtaDisplay = document.createTextNode(`${etadate.getMinutes() - date.getMinutes()} + ${busRoutes.eta_seq} + ${busRoutes.rmk_tc}`);
+                        let etadate = new Date(busRoutes.eta);
+                        let minuqel = etadate.getTime() - date.getTime();
+                        let minleft = parseInt (Math.floor(minuqel / 60000));
+                        let minleft2 = parseInt(minleft%60);
+                        const text = document.createElement("button");
+                 
+
+                        const routeEtaDisplay = document.createTextNode(` Minutes left: ${minleft2} +${busRoutes.eta_seq} + ${busRoutes.rmk_tc}`);
+                        text.className = "bg-red-500 text-white active:bg-red-600 font-bold uppercase text-xs px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
                         text.appendChild(routeEtaDisplay);
                         etaDisplayContainer.appendChild(text);
+                        etaDisplayContainer.style.display = "inline";
+                        
+
+                        
             
                     });
                     }
@@ -142,6 +157,7 @@ async function processBusRoutes(){
             }else if (ST >= 2){
 
                 x.style.backgroundColor = "yellow";
+                x.style.color= "black"
                 
 
             }
@@ -215,15 +231,26 @@ async function processBusRoutes(){
                     let busRoutescheckbtn = document.getElementById(`${busStop.name_en}`);
                     busRoutescheckbtn.addEventListener("click",function(){
                         
-                        console.log(busStop.name_tc);
-                        console.log(busRoutes);
+
+                        
                         let date = new Date(busRoutes.data_timestamp);
-                        let etadate = new Date(busRoutes.eta)
-                        const text = document.createElement("div");
-                        text.id = (`Clicktoshow`)
-                        const routeEtaDisplay = document.createTextNode(`${etadate.getMinutes() - date.getMinutes()} + ${busRoutes.eta_seq} + ${busRoutes.rmk_tc}`);
+                        let etadate = new Date(busRoutes.eta);
+                        let minuqel = etadate.getTime() - date.getTime();
+                        let minleft = parseInt (Math.floor(minuqel / 60000));
+                        let minleft2 = parseInt(minleft%60);
+                        const text = document.createElement("button");
+                 
+
+                        const routeEtaDisplay = document.createTextNode(` Minutes left: ${minleft2} +${busRoutes.eta_seq} + ${busRoutes.rmk_tc}`);
+                        text.className = "bg-red-500 text-white active:bg-red-600 font-bold uppercase text-xs px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
                         text.appendChild(routeEtaDisplay);
                         etaDisplayContainer.appendChild(text);
+                        etaDisplayContainer.style.display = "inline";
+
+                        
+
+                        
+                        
 
                      
             
@@ -238,7 +265,7 @@ async function processBusRoutes(){
             })
 
 
-            x.style.color = "blue";
+            x.style.color = "white";
             const ST = Routes.service_type;
             if(ST == 0){
                 x.style.backgroundColor = "red";
