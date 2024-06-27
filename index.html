@@ -1,69 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/x-icon" href="./icon/KowloonMotorBus.svg">
-    <link rel="stylesheet" href="styles.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/x-icon" href="./icon/ KMB_logo_2023.png" />
+    <link rel="stylesheet" href="styles.css" />
     <script src="https://cdn.tailwindcss.com"></script>
     <title>KMB App</title>
-</head>
-<body>
-    
+  </head>
+  <body>
+    <header>
+
+      <label class="inline-flex items-center me-5 cursor-pointer">
+        <input type="checkbox" value="off" class="sr-only peer" id="checkbox">
+        <div class="relative w-11 h-6 bg-gray-200 rounded-full peer peer-focus:ring-4 peer-focus:ring-red-300 dark:peer-focus:ring-red-800 dark:bg-gray-700 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-0.5 after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-red-600"></div>
+        <span class="ms-3 text-sm font-medium text-gray-900 dark:text-gray-300">English</span>
+      </label>
+
+    </header>
+
     <div id="Container">
-        <section class="circle bg-red-500" >
-
-            <div id="icon1">
-                <img src="./icon/ KMB_logo_2023.png" width="130px" height="130px">
-            </div>
-            
-            <div id="inputContainer">
-
-                <p class="w-85 border-soild border-2 border-black-500 routep">ROUTE NOS .路線號</p>
-                <input style= " border-bottom: 2px solid red;" size="4" type="text" id="BusNumber" placeholder="BUS"  onfocus="this.value=''">
-                <button class="bg-red-500 text-white active:bg-red-600 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"id="submitbtn">Enter</button>
-                
-            </div>
-            
-
-            <div class="bg-red-500"  id="Routesbroad">
-                
-    
-                <div id = "displayContainer">
-    
-                </div>
-    
-            </div>
-    
-        </section>
-        
-        <div class="bg-red-500"  id="StopRoutesbroad">
-
-            <div id = "stopDisplayContainer">
-
-            </div>
-
-
+      <section class="circle bg-red-500">
+        <div id="icon1">
+          <img src="./icon/ KMB_logo_2023.png" width="130px" height="130px" />
         </div>
 
-        
+        <div id="inputContainer">
+          <p class="w-85 border-soild border-2 border-black-500 routep">
+            ROUTE NOS .路線號
+          </p>
+          <input
+            style="border-bottom: 2px solid red"
+            size="4"
+            type="text"
+            id="BusNumber"
+            placeholder="BUS"
+          />
+          <button
+            class="bg-red-500 text-white active:bg-red-600 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
+            id="submitbtn"
+          >
+            Enter
+          </button>
+        </div>
 
-        <div id="stick"></div>
+        <div class="bg-red-500" id="Routesbroad">
+          <div id="displayContainer"></div>
+        </div>
+      </section>
+
+      <div class="bg-red-500" id="StopRoutesbroad">
+        <div id="stopDisplayContainer"></div>
+      </div>
+
+      <div id="stick"></div>
     </div>
-    
 
-    
+    <div id="etaDisplayContainer"></div>
 
-        <div id="etaDisplayContainer">
-
-
-        </div>
-
-
-        
-    
-    
-<script src="./script.js"></script>
-
-</body>
+    <script src="./script.js"></script>
+  </body>
 </html>
