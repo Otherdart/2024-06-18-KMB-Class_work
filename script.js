@@ -297,7 +297,7 @@ async function processBusRoutesEN(){
                             }
     
                             const text = document.createElement("button");
-                            const routeEtaDisplay = document.createTextNode(`Minutes left: ${minleft2}, ${ETA.rmk_en}`);
+                            const routeEtaDisplay = document.createTextNode(`${minleft2}分鐘後到達, ${ETA.rmk_tc}`);
                             text.className = "bg-red-500 text-white active:bg-red-600 font-bold uppercase text-xs px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
                             text.appendChild(routeEtaDisplay);
                             etaDisplayContainer.appendChild(text);
