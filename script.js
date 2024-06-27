@@ -95,6 +95,8 @@ async function processBusRoutesEN(){
             routesclicked.addEventListener("click", async function(){
                 etaDisplayContainer.style.display = "none";
                 stopDisplayContainer.innerHTML = '';
+
+
                 
                 let routestoplis = await getBusRoutesStop();
                
