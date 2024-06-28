@@ -222,7 +222,7 @@ async function processBusRoutesEN(){
             const routesclicked = document.getElementById(`${Routes.route}${Routes.bound}${Routes.service_type}`)
             routesclicked.addEventListener("click", async function(){
 
-
+                etaDisplayContainer.style.display = "none";
                 stopDisplayContainer.innerHTML = '';
 
                 let routestoplis = await getBusRoutesStop();
@@ -528,7 +528,7 @@ async function processBusRoutesTC(){
             const routesclicked = document.getElementById(`${Routes.route}${Routes.bound}${Routes.service_type}`)
             routesclicked.addEventListener("click", async function(){
 
-
+                etaDisplayContainer.style.display = "none";
                 stopDisplayContainer.innerHTML = '';
 
                 let routestoplis = await getBusRoutesStop();
